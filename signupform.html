@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+ <head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale = 1.0, user-scalable = no">
+    <meta property="og:title" content="Halloween Escaperoom">
+    <title> HALLO 5 Halloween Escaperoom </title>
+    <link rel="stylesheet" href="./formstyle.css">
+  <style>
+    @import 'style.css';
+  </style>
+     <link rel = 'icon' type = 'image\x-icon' href = 'images\logo.ico'>
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+ </head>
+
+ <body class="min-h-screen flex flex-col">
+    <header class='z-9 flex flex-row items-center justify-center place-content-start h-20 bg-linear-to-r from-[#ff8803] to-[#302334]'>
+         <div> <a href = 'story.html' class = 'z-6 flex mr-10 items-center justify-center h-13 w-28 rounded-2xl border-2 border-black transition-all hover:scale-110 bg-[#fccb7c] text-center text-[#302334] font-halloween drop-shadow-[0_0_10px_rgba(255,136,3,0.8)]'> Poveste</a> </div>    
+        <div> <a href = 'signupform.html' class = 'z-6 flex mr-10 items-center justify-center h-13 w-28 rounded-2xl border-2 border-black transition-all hover:scale-110 bg-[#fccb7c] text-center text-[#302334] font-halloween drop-shadow-[0_0_10px_rgba(255,136,3,0.8)]'> Formular inscriere</a> </div>
+       <a href="index.html"><img class="translate-y-2 z-10 w-25 transition-all hover:scale-110 animate-pulse" src='images\Logo.ico' ></a>
+       <div> <a href = 'learnmore.html' class = 'z-6 flex ml-10 items-center justify-center h-13 w-28 rounded-2xl border-2 border-black transition-all hover:scale-110 bg-[#fccb7c] text-center text-[#302334] font-halloween drop-shadow-[0_0_10px_rgba(255,136,3,0.8)]'> Detalii</a> </div>
+        <div> <a href = 'rules.html' class = 'z-6 flex ml-10 items-center justify-center h-13 w-28 rounded-2xl border-2 border-black transition-all hover:scale-110 bg-[#fccb7c] text-center text-[#302334] font-halloween drop-shadow-[0_0_10px_rgba(255,136,3,0.8)]'> Regulament</a> </div>
+
+    </header>  
+    <main class = 'relative grow p-6 min-h-125 w-full bg-[url(images/david-menidrey-MYRG0ptGh50-unsplash.jpg)] bg-center bg-contain flex items-center justify-center'>
+     <div class=" z-5 bg-black/65 w-full min-h-250 rounded-r-2xl rounded-l-2xl gap-6 items-center flex flex-col transition-all ">
+        <div class="form-container">
+    <h1>Misterul Studentului Pierdut</h1>
+    
+    <div class="story-box">
+        Un student din facultatea noastră a dispărut în mod misterios în încercarea sa de a descoperi secretul nemuririi. Ultimele sale însemnări arată că a cercetat cele mai întunecate mituri: zombie, vampiri, vrăjitori și scheleți. Pregătește-te să fii legat la ochi și să intri în camerele secrete din Clădirea 1. Timpul se scurge!
+    </div>
+
+    <form>
+        
+        <div>
+            <h1>Date Contact Lider Echipă</h1>
+            
+            <div class="form-group">
+                <label for="nume" class="required">Nume și Prenume</label>
+                <input type="text" id="nume" name="nume" required placeholder="Ex: Ion Popescu">
+            </div>
+
+            <div class="form-group">
+                <label for="telefon" class="required">Număr de Telefon</label>
+                <input type="tel" id="telefon" name="telefon" required placeholder="Ex: 07xx xxx xxx">
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="required">Adresă de E-mail</label>
+                <input type="email" id="email" name="email" required placeholder="Ex: nume@facultate.ro">
+            </div>
+        <div>
+
+        <div>
+            <h1>Detalii Echipă</h1>
+
+            <div class="form-group">
+                <label for="nume_echipa" class="required">Numele Echipei</label>
+                <input type="text" id="nume_echipa" name="nume_echipa" required placeholder="Introduceți un nume creativ">
+            </div>
+
+            <div class="form-group">
+                <label class="required">Număr de participanți</label>
+                <span class="hint">Recomandat: între 3 și 6 persoane</span>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="nr_participanti" value="3" required> 3 persoane
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="nr_participanti" value="4"> 4 persoane
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="nr_participanti" value="5"> 5 persoane
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="nr_participanti" value="6"> 6 persoane
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="membri">Numele celorlalți membri</label>
+                <textarea id="membri" name="membri" rows="3" placeholder="Separă numele prin virgulă..."></textarea>
+            </div>
+        </div>
+
+        <div>
+            <h1>Programare</h1>
+            
+            <div class="form-group">
+                <label for="interval" class="required">Alege intervalul orar preferat</label>
+                <select id="interval" name="interval" required>
+                    <option value="" disabled selected>Selectează un interval...</option>
+                    <option value="14:00-15:30">Interval 1: 14:00 - 15:30</option>
+                    <option value="16:00-17:30">Interval 2: 16:00 - 17:30</option>
+                    <option value="18:00-19:30">Interval 3: 18:00 - 19:30</option>
+                    <option value="20:00-21:30">Interval 4: 20:00 - 21:30</option>
+                </select>
+            </div>
+        </div>
+
+        <div>
+            <h1>Consimțământ și Reguli de Joc</h1>
+
+            <div class="form-group">
+                <label class="required">Sunteți de acord ca experiența să înceapă prin a fi legați la ochi?</label>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="legat_ochi" value="da" required> Da, acceptăm provocarea!
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="legat_ochi" value="nu"> Nu, avem rețineri / fobii.
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="sacrificiu">Cine este cel mai curajos membru din echipă?</label>
+                <span class="hint">În Camera Zombie va trebui să alegeți pe cineva pentru a fi „sacrificat”.</span>
+                <input type="text" id="sacrificiu" name="sacrificiu" placeholder="Numele membrului propus">
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <label class="checkbox-option">
+                        <input type="checkbox" name="acord_termeni" required>
+                        <span><strong>Declarație:</strong> Confirm că toți membrii echipei participă de bunăvoie, nu suferă de claustrofobie severă sau afecțiuni cardiace și vor respecta decorul și actorii (Zombie, Vampiri, Vrăjitori, Scheleți).</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="submit-btn">Trimite Înscrierea</button>
+        </div>
+    </main>
+<footer> 
+        <div class=" z-9 h-40 bg-linear-to-r from-[#ff8803] to-[#302334] flex items-end"> © 2026 HALLO 5 Halloween Escaperoom</div>
+    </footer>
+   </body>
+</html>
