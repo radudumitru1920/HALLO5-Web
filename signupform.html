@@ -72,14 +72,14 @@
                 <label for="email" class="required">Adresă de E-mail</label>
                 <input type="email" id="email" name="email" required placeholder="Ex: nume@facultate.ro">
             </div>
-        <div>
+        </div>
 
         <div>
             <h1>Detalii Echipă</h1>
 
             <div class="form-group">
-                <label for="nume_echipa" class="required">Numele Echipei</label>
-                <input type="text" id="nume_echipa" name="nume_echipa" required placeholder="Introduceți un nume creativ">
+                <label for="numeEchipa" class="required">Numele Echipei</label>
+                <input type="text" id="numeEchipa" name="numeEchipa" required placeholder="Introduceți un nume creativ">
             </div>
 
             <div class="form-group">
@@ -87,16 +87,16 @@
                 <span class="hint">Recomandat: între 3 și 6 persoane</span>
                 <div class="radio-group">
                     <label class="radio-option">
-                        <input type="radio" name="nr_participanti" value="3" required> 3 persoane
+                        <input type="radio" name="nrParticipanti" value="3" required> 3 persoane
                     </label>
                     <label class="radio-option">
-                        <input type="radio" name="nr_participanti" value="4"> 4 persoane
+                        <input type="radio" name="nrParticipanti" value="4"> 4 persoane
                     </label>
                     <label class="radio-option">
-                        <input type="radio" name="nr_participanti" value="5"> 5 persoane
+                        <input type="radio" name="nrParticipanti" value="5"> 5 persoane
                     </label>
                     <label class="radio-option">
-                        <input type="radio" name="nr_participanti" value="6"> 6 persoane
+                        <input type="radio" name="nrParticipanti" value="6"> 6 persoane
                     </label>
                 </div>
             </div>
@@ -114,10 +114,10 @@
                 <label class="required">Sunteți de acord ca experiența să înceapă prin a fi legați la ochi?</label>
                 <div class="radio-group">
                     <label class="radio-option">
-                        <input type="radio" name="legat_ochi" value="da" required> Da, acceptăm provocarea!
+                        <input type="radio" name="legatOchi" value="da" required> Da, acceptăm provocarea!
                     </label>
                     <label class="radio-option">
-                        <input type="radio" name="legat_ochi" value="nu"> Nu, avem rețineri / fobii.
+                        <input type="radio" name="legatOchi" value="nu"> Nu, avem rețineri / fobii.
                     </label>
                 </div>
             </div>
@@ -131,17 +131,45 @@
             <div class="form-group">
                 <div class="checkbox-group">
                     <label class="checkbox-option">
-                        <input type="checkbox" name="acord_termeni" required>
+                        <input type="checkbox" id="acord_termeni" name="acord_termeni" required>
                         <span><strong>Declarație:</strong> Confirm că toți membrii echipei participă de bunăvoie, nu suferă de claustrofobie severă sau afecțiuni cardiace și vor respecta decorul și actorii (Zombie, Vampiri, Vrăjitori, Scheleți).</span>
                     </label>
                 </div>
             </div>
         </div>
         <button type="submit" class="submit-btn">Trimite Înscrierea</button>
-        </div>
+    </form>
+    
+    <script>
+        
+        document.querySelector("form").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+            data.acord_termeni = data.acord_termeni === "on" ? "on" : "off";
+            console.log("📦 Date trimise către server:", data);
+        
+                const response = await fetch("http://localhost:3001/inscriere", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data),
+                });
+               const result = await response.json();
+                    console.log("raspuns", result);
+
+                    if (response.ok && !result.err) {
+                        window.location.href = 'succes.html';
+                        e.target.reset();
+                    }
+               
+       }) ;
+    </script>
+
     </main>
 <footer> 
         <div class=" z-9 h-30 bg-linear-to-r from-[#ff8803] to-[#302334] flex items-end"> © 2026 HALLO 5 Halloween Escaperoom</div>
     </footer>
+        <script src = 'Back-End/index.js' defer></script>
+
    </body>
 </html>
