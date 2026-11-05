@@ -6,17 +6,16 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const rules = {
-    nume: /^[A-Za-zĂÂÎȘȚăâîșț-]+( [A-Za-zĂÂÎȘȚăâîșț-]+)+$/,
-    telefon: /^07\d{2} ?\d{3} ?\d{3}$/,
-    email: /^[\w.-]+@[\w-]+\.[a-z]{2,}$/i,
-    numeEchipa: /^.{3,30}$/,
-    nrParticipanti: /^[3-6]$/,
-    legatOchi: /^(da|nu)$/,
-}
+const path = require('path');
+
 
 const fields = ["nume", "telefon", "email", "numeEchipa", "nrParticipanti", "legatOchi", "acord_termeni"]
 
+app.use(express.static(path.join(__dirname, '../')));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../index.html'));
+});
 
 app.post("/inscriere", async (req, res) => {
     const data = req.body
