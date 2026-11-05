@@ -149,7 +149,7 @@
             data.acord_termeni = data.acord_termeni === "on" ? "on" : "off";
             console.log("📦 Date trimise către server:", data);
         
-                const response = await fetch("http://localhost:3001/inscriere", {
+                const response = await fetch("/inscriere", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(data),

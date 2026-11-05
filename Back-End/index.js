@@ -66,9 +66,10 @@ app.post("/inscriere", async (req, res) => {
 })
 
 async function start() {
+    const PORT = process.env.PORT || 3001;
     await db.sync({force : true }).then(() => {
         console.log("DB a fost resetata")
      });
-    app.listen(3001, () => console.log("Serverul ruleaza pe portul 3001"));
+    app.listen(PORT, () => console.log("Serverul ruleaza pe portul ${PORT}"));
 }
 start();
