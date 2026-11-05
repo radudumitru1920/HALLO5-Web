@@ -17,6 +17,15 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../index.html'));
 });
 
+app.get("/admin/inscriere", async (req, res) => {
+    const secretKey = req.query.key;
+    if (secretKey !== 'secret123'){
+        req.status(403).json({ err: true, msg: "Acces neautorizat!" })
+    }
+    const inscrieri = await Inscriere.findAll();
+    res.status(200).json(inscrieri)
+});
+
 app.post("/inscriere", async (req, res) => {
     const data = req.body
 
