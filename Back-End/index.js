@@ -1,6 +1,6 @@
-import express from "express";
-import { db, Inscriere } from "./config.js";
-import cors from "cors";
+const express = require("express");
+const{ db, Inscriere } = require("./config.js");
+const cors = require("cors");
 
 const app = express();
 app.use(cors());

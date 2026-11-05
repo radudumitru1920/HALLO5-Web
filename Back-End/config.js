@@ -1,12 +1,12 @@
-import { Sequelize, DataTypes } from "sequelize";
+const { Sequelize, DataTypes } = require("sequelize");
 
-export const db = new Sequelize({
+const db = new Sequelize({
     dialect: "sqlite",
     storage: "./db.sqlite",
     logging: false,
 });
 
-export const Inscriere = db.define("inscriere", {
+const Inscriere = db.define("inscriere", {
     nume: { type: DataTypes.STRING, allowNull: false },
     telefon: { type: DataTypes.STRING, allowNull: false },
     email: { type: DataTypes.STRING, allowNull: false },
@@ -18,3 +18,8 @@ export const Inscriere = db.define("inscriere", {
 }, {
     freezeTableName: true,
 });
+
+module.exports = {
+    db,
+    Inscriere
+};
