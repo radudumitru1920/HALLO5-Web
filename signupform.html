@@ -147,7 +147,6 @@
             const formData = new FormData(e.target);
             const data = Object.fromEntries(formData.entries());
             data.acord_termeni = data.acord_termeni === "on" ? "on" : "off";
-            console.log("📦 Date trimise către server:", data);
         
                 const response = await fetch("/inscriere", {
                     method: "POST",
